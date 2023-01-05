@@ -1,7 +1,7 @@
 import { Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup } from '@mui/material';
 import React, { ReactNode } from 'react';
 import { isBoolean } from 'lodash';
-import { YesNoQuestionChildren } from '../form/Form';
+import { YesNoQuestionChildren } from '../Form';
 import { YesNoAnswer } from '../types/Answer';
 import { YesNoQuestion } from '../types/Question';
 

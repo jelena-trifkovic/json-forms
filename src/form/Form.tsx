@@ -6,7 +6,7 @@ import {
     SelectQuestion,
     TextQuestion,
     YesNoQuestion,
-} from '../types/Question';
+} from './types/Question';
 import {
     Answer,
     CheckboxesAnswer,
@@ -16,13 +16,13 @@ import {
     TextAnswer,
     YesNoAnswer,
     YesNoAnswerWithChildren,
-} from '../types/Answer';
+} from './types/Answer';
 import { cloneElement, ReactNode } from 'react';
-import DateInput from '../questions/DateInput';
-import TextInput from '../questions/TextInput';
-import CheckboxesInput from '../questions/CheckboxesInput';
-import SelectInput from '../questions/SelectInput';
-import YesNoInput from '../questions/YesNoInput';
+import DateInput from './questions/DateInput';
+import TextInput from './questions/TextInput';
+import CheckboxesInput from './questions/CheckboxesInput';
+import SelectInput from './questions/SelectInput';
+import YesNoInput from './questions/YesNoInput';
 import { isBoolean } from 'lodash';
 import moment from 'moment';
 
