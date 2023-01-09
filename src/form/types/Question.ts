@@ -62,6 +62,7 @@ export interface CheckboxesQuestion {
     label: string;
     checkboxes: Checkbox[];
     optional?: boolean;
+    horizontal?: boolean;
   };
 }
 

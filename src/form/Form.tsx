@@ -337,6 +337,18 @@ const provideFormStatusRenderer: FormRendererProvider<boolean> =
         }
         case "Text":
           return spec.renderText(tags, question["props"], answer as TextAnswer);
+        case "Checkboxes":
+          return spec.renderCheckboxes(
+            tags,
+            question["props"],
+            answer as CheckboxesAnswer
+          );
+        case "Select":
+          return spec.renderSelect(
+            tags,
+            question["props"],
+            answer as SelectAnswer
+          );
         case "YesNo":
           const children = {
             child:

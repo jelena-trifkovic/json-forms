@@ -21,11 +21,10 @@ const CheckboxesInput = ({
   name,
   label,
   checkboxes,
+  horizontal,
   answer,
   onChange,
 }: CheckboxesInputProps) => {
-  console.log("CheckboxesInput", name, label, checkboxes, answer);
-
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const changed = { [event.target.name]: event.target.checked };
     onChange?.(answer ? { ...answer, ...changed } : changed);
@@ -37,21 +36,23 @@ const CheckboxesInput = ({
         <FormLabel component="legend">{label}</FormLabel>
         <FormHelperText>Check all that apply</FormHelperText>
         <FormGroup>
-          {checkboxes.map((checkbox) => {
-            const { name, label } = checkbox;
-            return (
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={!!answer?.[name]}
-                    onChange={handleChange}
-                    name={name}
-                  />
-                }
-                label={label}
-              />
-            );
-          })}
+          <Box display="flex" flexDirection={horizontal ? "row" : "column"}>
+            {checkboxes.map((checkbox) => {
+              const { name, label } = checkbox;
+              return (
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={!!answer?.[name]}
+                      onChange={handleChange}
+                      name={name}
+                    />
+                  }
+                  label={label}
+                />
+              );
+            })}
+          </Box>
         </FormGroup>
       </FormControl>
     </Box>
