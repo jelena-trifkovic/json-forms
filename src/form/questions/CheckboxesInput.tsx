@@ -1,16 +1,30 @@
-import { Box, Checkbox, FormControl, FormControlLabel, FormGroup, FormHelperText, FormLabel } from '@mui/material';
-import React from 'react';
-import { CheckboxesAnswer } from '../types/Answer';
-import { CheckboxesQuestion } from '../types/Question';
+import {
+  Box,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormHelperText,
+  FormLabel,
+} from "@mui/material";
+import React from "react";
+import { CheckboxesAnswer } from "../types/Answer";
+import { CheckboxesQuestion } from "../types/Question";
 
-type CheckboxesInputProps = CheckboxesQuestion['props'] & {
+type CheckboxesInputProps = CheckboxesQuestion["props"] & {
   name?: string;
   answer?: CheckboxesAnswer;
   onChange?: (newAnswer: CheckboxesAnswer) => void;
 };
 
-const CheckboxesInput = ({ name, label, checkboxes, answer, onChange }: CheckboxesInputProps) => {
-  console.log('CheckboxesInput', name, label, checkboxes, answer);
+const CheckboxesInput = ({
+  name,
+  label,
+  checkboxes,
+  answer,
+  onChange,
+}: CheckboxesInputProps) => {
+  console.log("CheckboxesInput", name, label, checkboxes, answer);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const changed = { [event.target.name]: event.target.checked };
@@ -23,11 +37,17 @@ const CheckboxesInput = ({ name, label, checkboxes, answer, onChange }: Checkbox
         <FormLabel component="legend">{label}</FormLabel>
         <FormHelperText>Check all that apply</FormHelperText>
         <FormGroup>
-          {checkboxes.map(checkbox => {
+          {checkboxes.map((checkbox) => {
             const { name, label } = checkbox;
             return (
               <FormControlLabel
-                control={<Checkbox checked={!!answer?.[name]} onChange={handleChange} name={name} />}
+                control={
+                  <Checkbox
+                    checked={!!answer?.[name]}
+                    onChange={handleChange}
+                    name={name}
+                  />
+                }
                 label={label}
               />
             );
